@@ -1,0 +1,13 @@
+# .NET
+backend/PokemonApi/bin/
+backend/PokemonApi/obj/
+*.user
+
+# Angular / Node
+frontend/pokemon-tournament/node_modules/
+frontend/pokemon-tournament//dist/
+frontend/pokemon-tournament//.angular/
+
+# IDE
+.vs/
+.vscode/
