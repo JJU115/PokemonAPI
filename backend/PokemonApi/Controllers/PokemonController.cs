@@ -105,8 +105,8 @@ public class PokemonController(ILogger<PokemonController> logger, HttpClient pok
             Ties = pkmn.Ties
         });
 
-    //Order it properly before sending back
-        return Ok(OrderPokemonDtoList(pokemonDtos, sortBy, sortDirection));
+        //Order it properly before sending back
+        return new JsonResult(OrderPokemonDtoList(pokemonDtos, sortBy, sortDirection));
     }
 
 

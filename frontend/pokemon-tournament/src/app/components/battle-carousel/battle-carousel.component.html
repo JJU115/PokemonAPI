@@ -1,1 +1,7 @@
-<p>battle-carousel works!</p>
+<div class="container carousel">
+    @for (pokemon of pokemonLineup; track pokemon.id) {
+        <mat-card appearance="outlined">
+            <mat-card-content>Simple card</mat-card-content>
+        </mat-card>
+    }
+</div>
