@@ -23,14 +23,9 @@ export class AppComponent implements OnInit {
 
     this.battleService.fetchBattleData('wins').subscribe((battleData: Pokemon[]) => {
       console.log(battleData);
+      this.pokemonBattleCards.set(battleData);
     })
 
-    let demo: Pokemon[] = [];
-    for (let t=0; t<10; t++){
-      demo.push({id: t, name: "", type:"", wins:t, losses:t, ties:t});
-    }
-    
-    this.pokemonBattleCards.set(demo);
   }
 
 

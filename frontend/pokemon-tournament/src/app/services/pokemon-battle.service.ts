@@ -14,6 +14,6 @@ export class PokemonBattleService {
 
 
   fetchBattleData(sortBy: string, sortOrder: string = 'asc'): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>(`${this.baseUrl}/pokemon/tournament/statistics?sortBy=${sortBy}&sortOrder=${sortOrder}`);
+    return this.http.get<Pokemon[]>(`${this.baseUrl}/tournament/statistics?sortBy=${sortBy}&sortOrder=${sortOrder}`);
   }
 }
