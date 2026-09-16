@@ -1,4 +1,4 @@
-import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, computed, OnInit, Signal, signal, WritableSignal } from '@angular/core';
 import { BattleCarouselComponent } from './components/battle-carousel/battle-carousel.component';
 import {Pokemon} from './models/pokemon.model';
 import {MatCardModule} from '@angular/material/card';
@@ -20,15 +20,29 @@ import {MatChipsModule} from '@angular/material/chips';
 })
 export class AppComponent implements OnInit {
   
-  pokemonBattleCards: WritableSignal<Pokemon[]> = signal([]);
+  allBattleCards: WritableSignal<Pokemon[]> = signal([]);
 
   sortByControl = new FormControl<keyof Pokemon>('wins');
   sortDirectionControl = new FormControl<'asc' | 'desc'>('asc');
 
-  //Paginator data
-  pageSize: number = 16;
-  pageIndex: number = 0;
+  //Paginator data — signals so the template stays in sync with page changes
+  pageSize: WritableSignal<number> = signal(16);
+  pageIndex: WritableSignal<number> = signal(0);
   pageSizeOptions: number[] = [4, 8, 12, 16];
+
+  // Total number of items, drives the paginator's [length]
+  totalItems: Signal<number> = computed(() => this.allBattleCards().length);
+
+  // The slice of the sorted list that belongs on the current page
+  pokemonBattleCards: Signal<Pokemon[]> = computed(() => {
+
+    const start = this.pageIndex() * this.pageSize();
+
+    return this.allBattleCards().slice(start, start + this.pageSize());
+
+  });
+
+
 
   constructor(private battleService: PokemonBattleService) {}
 
@@ -36,14 +50,18 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.battleService.fetchBattleData('wins').subscribe((battleData: Pokemon[]) => {
       console.log(battleData);
-      this.pokemonBattleCards.set(battleData);
+      this.allBattleCards.set(battleData);
     })
 
-    this.sortByControl.valueChanges.subscribe(sortBy => 
-      this.pokemonBattleCards.update(pkmn => this.sortByProperty(pkmn, sortBy!, this.sortDirectionControl.value!)));
+    this.sortByControl.valueChanges.subscribe(sortBy => {
+      this.allBattleCards.update(pkmn => this.sortByProperty(pkmn, sortBy!, this.sortDirectionControl.value!))
+      this.pageIndex.set(0);
+    });
 
-    this.sortDirectionControl.valueChanges.subscribe(sortOrder => 
-      this.pokemonBattleCards.update(pkmn => this.sortByProperty(pkmn, this.sortByControl.value!, sortOrder!)));
+    this.sortDirectionControl.valueChanges.subscribe(sortOrder => {
+      this.allBattleCards.update(pkmn => this.sortByProperty(pkmn, this.sortByControl.value!, sortOrder!));
+      this.pageIndex.set(0);
+    });
     
   }
 
@@ -66,9 +84,11 @@ export class AppComponent implements OnInit {
   }
 
 
-  handlePageEvent(e: PageEvent) {
-    this.pageSize = e.pageSize;
-    this.pageIndex = e.pageIndex;
+ handlePageEvent(e: PageEvent) {
+    this.pageSize.set(e.pageSize);
+    this.pageIndex.set(e.pageIndex);
   }
+
+
 
 }

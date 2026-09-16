@@ -39,12 +39,16 @@
   </div>
   
   
-  <mat-paginator #paginator
+    <mat-paginator #paginator
                (page)="handlePageEvent($event)"
-               [length]="16"
-               [pageSize]="pageSize"
+               [length]="totalItems()"
+               [pageSize]="pageSize()"
+               [pageIndex]="pageIndex()"
                [pageSizeOptions]="pageSizeOptions">
+
   </mat-paginator>
+
+
 
   <mat-card appearance="raised" style="color: gray; text-align: center; padding: 10px; margin-top: 15px;margin-bottom: 15px;">
     Data refreshes automatically based on tournament results
