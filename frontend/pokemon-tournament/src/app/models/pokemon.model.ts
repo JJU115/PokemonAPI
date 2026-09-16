@@ -1,14 +1,14 @@
 export class Pokemon {
 
-    public id!: number;
+    public id: number = 0;
 
-    public name!: string;
+    public name: string = '';
 
-    public type!: string;
+    public type: string = '';
 
-    public wins!: number;
+    public wins: number = 0;
 
-    public losses!: number;
+    public losses: number = 0;
 
-    public ties!: number;
+    public ties: number = 0;
 }

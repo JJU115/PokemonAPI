@@ -1,15 +1,20 @@
-<mat-card class="example-card" appearance="outlined">
+<mat-card class="example-card" appearance="raised">
   <mat-card-header>
-    <img mat-card-avatar src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/144.png">
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    <img mat-card-avatar class="avatar-image" [src]='spriteUrl'>
+    <mat-card-title>{{pokemon.name | titlecase}}</mat-card-title>
+    <mat-card-subtitle>{{pokemon.type | titlecase}}</mat-card-subtitle>
     <span>Trophy</span>  
   </mat-card-header>
   
   <mat-card-content>
-    <span>#006</span>
+    <span>#{{pokemon.id | number:'3.0-0'}}</span>
+
+
     <div>stats</div>
-    <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    
+    
+    
+    <mat-progress-bar mode="determinate" [value]="winRate">Win Rate</mat-progress-bar>
   </mat-card-content>
 
 
