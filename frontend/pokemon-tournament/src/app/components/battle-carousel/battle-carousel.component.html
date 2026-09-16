@@ -1,7 +1,5 @@
-<div class="container carousel">
+<div class="carousel">
     @for (pokemon of pokemonLineup; track pokemon.id) {
-        <app-pokemon-battle-card [pokemon]="pokemon">
-            
-        </app-pokemon-battle-card>
-    }
+        <app-pokemon-battle-card [pokemon]="pokemon" class="battle-card"></app-pokemon-battle-card>      
+    } 
 </div>

@@ -1,5 +1,13 @@
 .carousel {
+    padding: 0px;
     display: flex;
     flex-wrap: wrap;
     gap: 5%;
+    justify-content: space-around;
+}
+
+.battle-card {
+    margin-bottom: 20px;
+    width: 250px;
+    flex-grow: 0.5;
 }

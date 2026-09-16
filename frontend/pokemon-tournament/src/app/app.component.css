@@ -1,0 +1,17 @@
+.center-item {
+    display: flex;
+    justify-content: center;
+}
+
+.header {
+    justify-content: center; 
+    padding: 15px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: lightsteelblue;
+    border-radius: 15px;
+}
+
+.spacer {
+    flex-grow: 0.25;
+}

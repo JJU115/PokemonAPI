@@ -8,12 +8,13 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
 import {PageEvent, MatPaginatorModule} from '@angular/material/paginator';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [BattleCarouselComponent, MatPaginatorModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule],
+  imports: [BattleCarouselComponent, MatChipsModule, MatPaginatorModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
