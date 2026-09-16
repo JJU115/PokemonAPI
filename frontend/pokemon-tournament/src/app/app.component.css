@@ -4,6 +4,7 @@
 }
 
 .header {
+    margin: 10px;
     justify-content: center; 
     padding: 15px;
     margin-top: 25px;
@@ -14,4 +15,11 @@
 
 .spacer {
     flex-grow: 0.25;
+}
+
+.top-header-div-style {
+    justify-content: center; 
+    background-color: lightblue;
+    border-radius: 15px;
+    color: darkcyan;
 }

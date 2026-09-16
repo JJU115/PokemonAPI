@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, computed, OnInit, Signal, signal, ViewEncapsulation, WritableSignal } from '@angular/core';
 import { BattleCarouselComponent } from './components/battle-carousel/battle-carousel.component';
 import {Pokemon} from './models/pokemon.model';
 import {MatCardModule} from '@angular/material/card';
@@ -16,7 +16,8 @@ import {MatChipsModule} from '@angular/material/chips';
   standalone: true,
   imports: [BattleCarouselComponent, MatChipsModule, MatPaginatorModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   

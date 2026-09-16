@@ -1,7 +1,10 @@
 <div class="container">
   
   <div class="row header">
-    <mat-chip class="center-item" style="width: 30%; justify-content: center; background-color: lightblue;">Tournament Statistics</mat-chip>
+    <div class="center-item top-header-div-style" style="justify-content: center; background-color: lightblue;">
+      <span>Tournament Statistics</span>
+    </div>
+
     <h2 class="center-item" style="margin-top: 15px;">Pok&#233;mon League</h2>
 
     <span class="center-item" style="text-align:center">Explore performance statistics from the latest pokemon tournament. Sort by different metrics to see who's leading the competition!</span>
@@ -9,10 +12,10 @@
 
   </div>
 
-  <div class="row" style="margin-bottom: 25px;">
+  <div class="row" style="margin-bottom: 25px; margin-right: 10px; margin-left: 10px">
     <mat-card appearance="outlined" style="padding-bottom: 0px;">
       <mat-card-content style="display:flex;">
-        <mat-form-field style="flex-grow: 1">
+        <mat-form-field style="flex-grow: 1; margin-right: 8px;">
           <mat-label>Sort By</mat-label>
           <mat-select [formControl]="sortByControl">
             <mat-option value="wins">Wins</mat-option>            
