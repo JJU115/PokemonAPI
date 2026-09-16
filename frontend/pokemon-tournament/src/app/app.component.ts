@@ -7,12 +7,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
+import {PageEvent, MatPaginatorModule} from '@angular/material/paginator';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [BattleCarouselComponent, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule],
+  imports: [BattleCarouselComponent, MatPaginatorModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatSelectModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -22,6 +23,11 @@ export class AppComponent implements OnInit {
 
   sortByControl = new FormControl<keyof Pokemon>('wins');
   sortDirectionControl = new FormControl<'asc' | 'desc'>('asc');
+
+  //Paginator data
+  pageSize: number = 16;
+  pageIndex: number = 0;
+  pageSizeOptions: number[] = [4, 8, 12, 16];
 
   constructor(private battleService: PokemonBattleService) {}
 
@@ -55,9 +61,13 @@ export class AppComponent implements OnInit {
       }
       
       return 0; 
-  });
-}
+    });
+  }
 
 
+  handlePageEvent(e: PageEvent) {
+    this.pageSize = e.pageSize;
+    this.pageIndex = e.pageIndex;
+  }
 
 }

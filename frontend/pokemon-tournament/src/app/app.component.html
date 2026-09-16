@@ -34,5 +34,13 @@
   <div class="row">
     <app-battle-carousel [pokemonLineup]="pokemonBattleCards()"></app-battle-carousel>
   </div>
+  
+  
+  <mat-paginator #paginator
+               (page)="handlePageEvent($event)"
+               [length]="16"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions">
+  </mat-paginator>
 </div>
 

@@ -1,3 +1,31 @@
+.pokemon-card {
+    background-color: ghostwhite;
+}
+
 .avatar-image {
-    transform: scale(2);
+    transform: scale(1.8);
+}
+
+.info-text {
+    font-size: small;
+    color: grey;
+}
+
+.battle-stat-div {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.label-span {
+    display: flex; 
+    justify-content: center;
+}
+
+.number-span {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    align-items: center;
 }

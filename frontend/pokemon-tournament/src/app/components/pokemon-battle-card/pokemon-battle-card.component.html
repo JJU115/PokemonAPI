@@ -1,4 +1,4 @@
-<mat-card class="example-card" appearance="raised">
+<mat-card class="pokemon-card" appearance="raised">
   <mat-card-header>
     <img mat-card-avatar class="avatar-image" [src]='spriteUrl'>
     <mat-card-title>{{pokemon.name | titlecase}}</mat-card-title>
@@ -6,15 +6,36 @@
     <span>Trophy</span>  
   </mat-card-header>
   
-  <mat-card-content>
-    <span>#{{pokemon.id | number:'3.0-0'}}</span>
+  <mat-card-content style="display:flex; flex-direction: column; justify-content: space-between; height: 120px;">
+    <span class="info-text">#{{pokemon.id | number:'3.0-0'}}</span>
 
 
-    <div>stats</div>
+    <div class="row" style="height: 100%;">
+      <div class="col-4 battle-stat-div">
+        <span class="info-text label-span">Wins</span>
+        <span class="number-span">{{pokemon.wins}}</span>
+      </div>
+
+      <div class="col-4 battle-stat-div">
+        <span class="info-text label-span">Ties</span>
+        <span class="number-span">{{pokemon.ties}}</span>
+      </div>
+
+      <div class="col-4 battle-stat-div">
+        <span class="info-text label-span">Losses</span>
+        <span class="number-span">{{pokemon.losses}}</span>
+      </div>
+    </div>
     
+    <div>
+      <div style="display: flex; justify-content: space-between;">
+        <span class="info-text">Win rate</span>
+        <span class="info-text">{{winRate}}%</span>
+      </div>
+      
+      <mat-progress-bar mode="determinate" [value]="winRate"></mat-progress-bar>
+    </div>
     
-    
-    <mat-progress-bar mode="determinate" [value]="winRate">Win Rate</mat-progress-bar>
   </mat-card-content>
 
 
