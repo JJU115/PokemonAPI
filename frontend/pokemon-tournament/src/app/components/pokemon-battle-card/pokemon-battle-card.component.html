@@ -3,11 +3,13 @@
     <img mat-card-avatar class="avatar-image" [src]='spriteUrl'>
     <mat-card-title>{{pokemon.name | titlecase}}</mat-card-title>
     <mat-card-subtitle> 
-      <mat-chip style="margin-top: 10px;">{{pokemon.type | titlecase}}</mat-chip>
+      <mat-chip [style.background-color]="TYPE_COLORS[pokemon.type]" style="color: white; margin-top: 10px;">
+        <span style="color: white">{{pokemon.type | titlecase}}</span>
+      </mat-chip>
     </mat-card-subtitle>
   </mat-card-header>
   
-  <mat-card-content style="display:flex; flex-direction: column; justify-content: space-between; height: 120px;">
+  <mat-card-content style="display:flex; flex-direction: column; justify-content: space-between; height: 120px; margin-top: 10px;">
     <span class="info-text">#{{pokemon.id | number:'3.0-0'}}</span>
 
 
@@ -28,7 +30,7 @@
       </div>
     </div>
     
-    <div>
+    <div style="margin-top: 10px;">
       <div style="display: flex; justify-content: space-between;">
         <span class="info-text">Win rate</span>
         <span class="info-text">{{winRate}}%</span>
