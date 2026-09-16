@@ -2,8 +2,9 @@
   <mat-card-header>
     <img mat-card-avatar class="avatar-image" [src]='spriteUrl'>
     <mat-card-title>{{pokemon.name | titlecase}}</mat-card-title>
-    <mat-card-subtitle>{{pokemon.type | titlecase}}</mat-card-subtitle>
-    <span>Trophy</span>  
+    <mat-card-subtitle> 
+      <mat-chip style="margin-top: 10px;">{{pokemon.type | titlecase}}</mat-chip>
+    </mat-card-subtitle>
   </mat-card-header>
   
   <mat-card-content style="display:flex; flex-direction: column; justify-content: space-between; height: 120px;">
@@ -41,6 +42,10 @@
 
   <mat-card-actions>
     <audio #audioPlayer [src]='battleCryUrl'></audio>
-    <button mat-button (click)="audioPlayer.play()">Cry!</button>
+    <button mat-icon-button (click)="audioPlayer.play()">
+        <span class="material-symbols-outlined">
+        select_to_speak
+        </span>
+      </button>
   </mat-card-actions>
 </mat-card>

@@ -3,11 +3,14 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { Pokemon } from '../../models/pokemon.model';
 import { DecimalPipe, TitleCasePipe } from '@angular/common';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-pokemon-battle-card',
   standalone: true,
-  imports: [MatCardModule, MatProgressBarModule, DecimalPipe, TitleCasePipe],
+  imports: [MatCardModule, MatProgressBarModule, DecimalPipe, MatButtonModule, TitleCasePipe, MatChipsModule, MatIconModule],
   templateUrl: './pokemon-battle-card.component.html',
   styleUrl: './pokemon-battle-card.component.css'
 })
